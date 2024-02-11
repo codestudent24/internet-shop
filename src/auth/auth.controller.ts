@@ -13,8 +13,6 @@ import { AuthDto, RefreshTokenDto } from './auth.dto'
 export class AuthController {
   constructor(private readonly authService: AuthService) {}
 
-  // Login, getNewTokens
-
   @UsePipes(new ValidationPipe())
   @HttpCode(200)
   @Post('login')
@@ -24,6 +22,7 @@ export class AuthController {
 
   @UsePipes(new ValidationPipe())
   @HttpCode(200)
+  // @Auth()
   @Post('login/access-token')
   async getNewTokens(@Body() dto: RefreshTokenDto) {
     return this.authService.getNewTokens(dto.refreshToken)
