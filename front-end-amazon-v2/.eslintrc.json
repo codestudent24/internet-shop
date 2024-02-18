@@ -1,0 +1,13 @@
+{
+  "settings": {
+    "next": {
+      "rootDir": "front-end-amazon-v2"
+    }
+  },
+  "extends": [
+    "next"
+  ],
+  "rules": {
+    "@next/next/no-html-link-for-pages": 2
+  }
+}
