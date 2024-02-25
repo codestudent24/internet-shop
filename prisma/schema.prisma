@@ -83,6 +83,7 @@ model Order {
   status      EnumOrderStatus @default(PENDING)
 
   items       OrderItem[]
+  total       Int
 
   userId      Int @map("user_id")
   user        User @relation(fields: [userId], references: [id])

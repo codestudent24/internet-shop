@@ -5,10 +5,7 @@ import { PrismaService } from 'src/prisma.service'
 import { generateSlug } from 'src/utils/generate-slug'
 import { EnumProductSort, GetAllProductDto } from './get-all.product.dto'
 import { ProductDto } from './product.dto'
-import {
-  returnProductObject,
-  returnProductObjectFullset
-} from './return-product.object'
+import { returnProductObject } from './return-product.object'
 
 @Injectable()
 export class ProductService {
@@ -65,7 +62,8 @@ export class ProductService {
       where: prismaSearchTermFilter,
       orderBy: prismaSort,
       skip,
-      take: perPage
+      take: perPage,
+      select: returnProductObject
     })
 
     return {
@@ -81,7 +79,7 @@ export class ProductService {
       where: {
         id
       },
-      select: returnProductObjectFullset
+      select: returnProductObject
     })
 
     if (!product) throw new NotFoundException('Product not found')
@@ -94,7 +92,7 @@ export class ProductService {
       where: {
         slug
       },
-      select: returnProductObjectFullset
+      select: returnProductObject
     })
 
     if (!product) throw new NotFoundException('Product not found')
@@ -109,7 +107,7 @@ export class ProductService {
           slug: categorySlug
         }
       },
-      select: returnProductObjectFullset
+      select: returnProductObject
     })
 
     if (!products) throw new NotFoundException('Products not found')
