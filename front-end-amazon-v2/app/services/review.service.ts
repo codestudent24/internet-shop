@@ -1,4 +1,4 @@
-import { instance } from '@/api/api.interceptor'
+import { axiosClassic, instance } from '@/api/api.interceptor'
 import { IReview } from '@/types/review.interface'
 
 const REVIEW = 'reviews'
@@ -10,8 +10,15 @@ type TypeData = {
 
 export const ReviewService = {
   async getAll() {
-    return instance<IReview[]>({
+    return axiosClassic<IReview[]>({
       url: REVIEW,
+      method: 'GET',
+    })
+  },
+
+  async getAverageByProductId(productId: string | number) {
+    return axiosClassic<number>({
+      url: `${REVIEW}/average-by-product/${productId}`,
       method: 'GET',
     })
   },

@@ -1,6 +1,8 @@
 import { combineReducers, configureStore } from "@reduxjs/toolkit"
 import { FLUSH, PAUSE, PERSIST, PURGE, REGISTER, REHYDRATE, persistReducer, persistStore } from "redux-persist"
 import storage from "redux-persist/lib/storage"
+import { cartSlice } from "./cart/cart.slice"
+import { userSLice } from "./user/user.slice"
 
 const persistConfig = {
   key: 'amazon-v2',
@@ -10,7 +12,8 @@ const persistConfig = {
 
 const rootReducer = combineReducers({
   cart: cartSlice.reducer,
-  carousel: carouselSlice.reducer
+  // carousel: carouselSlice.reducer,
+  user: userSLice.reducer
 })
 
 const persistedReducer = persistReducer(

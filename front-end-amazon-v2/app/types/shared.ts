@@ -1,0 +1,1 @@
+export type TypeLoginRegister = 'login' | 'register';

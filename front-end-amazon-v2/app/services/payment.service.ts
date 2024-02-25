@@ -3,7 +3,7 @@ import { IPaymentResponse } from '@/types/payment.interface'
 
 const PAYMENT = 'payment'
 
-export const ReviewService = {
+export const PaymentService = {
   async createPayment(amount: number) {
     return instance.post<IPaymentResponse>(PAYMENT, {
       amount
@@ -11,4 +11,4 @@ export const ReviewService = {
   },
 }
 
-export default ReviewService
+export default PaymentService

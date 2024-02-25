@@ -12,3 +12,12 @@ export interface IProduct {
   reviews: IReview[],
   category: ICategory
 }
+
+export type TypeProducts = {
+  products: IProduct[]
+}
+
+export type TypePaginationProducts = {
+  products: IProduct[],
+  length: number
+}
