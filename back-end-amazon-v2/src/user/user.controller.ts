@@ -1,6 +1,7 @@
 import {
   Body,
   Controller,
+  Delete,
   Get,
   HttpCode,
   Param,
@@ -9,10 +10,10 @@ import {
   UsePipes,
   ValidationPipe
 } from '@nestjs/common'
-import { UserService } from './user.service'
 import { Auth } from 'src/auth/decorators/auth.decorator'
 import { CurrentUser } from 'src/auth/decorators/user.decorator'
 import { UserDto } from './user.dto'
+import { UserService } from './user.service'
 
 @Controller('users')
 export class UserController {
@@ -40,5 +41,12 @@ export class UserController {
     @Param('productId') productId: string
   ) {
     return this.userService.toggleFavorite(id, +productId)
+  }
+
+  @HttpCode(200)
+  @Auth()
+  @Delete(':id')
+  async deleteUser(@Param('id') id: string) {
+    return this.userService.delete(+id)
   }
 }

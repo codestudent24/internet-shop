@@ -93,4 +93,12 @@ export class UserService {
 
     return { message: 'Success' }
   }
+
+  async delete(id: number) {
+    return this.prisma.user.delete({
+      where: {
+        id
+      }
+    })
+  }
 }
