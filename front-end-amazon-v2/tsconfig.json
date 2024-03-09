@@ -5,6 +5,7 @@
       "dom.iterable",
       "esnext"
     ],
+    "baseUrl": ".",
     "allowJs": true,
     "skipLibCheck": true,
     "strict": true,
@@ -18,16 +19,16 @@
     "incremental": true,
     "paths": {
       "@/layout/*": [
-        "./app/components/layout/*"
+        "./src/components/layout/*"
       ],
       "@/ui/*": [
-        "./app/components/ui/*"
+        "./src/components/ui/*"
       ],
-      "@/screens/": [
-        "./app/components/screens/*"
+      "@/screens/*": [
+        "./src/components/screens/*"
       ],
       "@/*": [
-        "./app/*"
+        "./src/*"
       ]
     },
     "plugins": [
