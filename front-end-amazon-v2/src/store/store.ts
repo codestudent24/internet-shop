@@ -3,6 +3,7 @@ import { FLUSH, PAUSE, PERSIST, PURGE, REGISTER, REHYDRATE, persistStore } from 
 import storage from "redux-persist/lib/storage"
 import { carouselSlice } from "./carousel/carousel.slice"
 import { cartSlice } from "./cart/cart.slice"
+import { filtersSlice } from "./filters/filters.slice"
 import { userSLice } from "./user/user.slice"
 
 const isClient = typeof window !== 'undefined'
@@ -10,7 +11,8 @@ const isClient = typeof window !== 'undefined'
 const combinedReducers = combineReducers({
   cart: cartSlice.reducer,
   carousel: carouselSlice.reducer,
-  user: userSLice.reducer
+  user: userSLice.reducer,
+  filters: filtersSlice.reducer,
 })
 
 let mainReducer = combinedReducers

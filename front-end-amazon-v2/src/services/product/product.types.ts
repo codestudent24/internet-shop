@@ -12,7 +12,7 @@ export type TypeProductDataFilters = {
   sort?: EnumProductSort | string
   searchTerm?: string
   page?: string | number
-  perPage?: string | number
+  perPage: string | number
   ratings?: string
   minPrice?: string
   maxPrice?: string
@@ -24,4 +24,8 @@ export enum EnumProductSort {
   LOW_PRICE = 'low-price',
   NEWEST = 'newest',
   OLDEST = 'oldest'
+}
+
+export type TypeParamsFilters = {
+  searchParams: TypeProductDataFilters,
 }
