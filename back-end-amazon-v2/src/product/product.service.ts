@@ -130,7 +130,7 @@ export class ProductService {
     if (maxPrice) {
       priceFilter = {
         ...priceFilter,
-        lte: minPrice
+        lte: maxPrice
       }
     }
 
